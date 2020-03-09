@@ -11,13 +11,13 @@ var scriptBulkCreateAccount = &cobra.Command{
 	Short: "bulk create validators and execute deposit tx on eth 1.0",
 	Long: `Create an account.  For example:
 
-    ethdo script bulkaccount --wallet="primary" --walletpassphrase="my secret"
+    ethdo script bulkaccount --wallet="primary" --walletpassphrase="my secret" --bulk=50"
 
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		assert(walletName != "", "--wallet is required")
 		assert(bulkNumber != "", "--bulk is required")
-		assert(rootWalletPassphrase != "", "--passphrase is required")
+		assert(rootWalletPassphrase != "", "--walletpassphrase is required")
 
 		cnt, err := strconv.Atoi(bulkNumber)
 		errCheck(err, "--bulkNumber invalid value")
