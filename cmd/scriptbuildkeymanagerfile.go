@@ -10,7 +10,7 @@ import (
 
 type KeyManagerData struct {
 	Location    string `json:"location"`
-	Accounts    string `json:"accounts"`
+	Accounts    []string `json:"accounts"`
 	Passphrases []string `json:"passphrases"`
 }
 
@@ -44,7 +44,7 @@ var scriptBuildKeyManagerFile = &cobra.Command{
 
 		data := KeyManagerData{
 			Location:    "/wallets",
-			Accounts:    walletName + "/*",
+			Accounts:    []string{walletName + "/*"},
 			Passphrases: _pass,
 		}
 
